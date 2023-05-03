@@ -1,6 +1,6 @@
 <template>
     <div>
-       This is onboarding!
+        This is Login
     </div>
 </template>
 <script>
