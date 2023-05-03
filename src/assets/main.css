@@ -29,6 +29,7 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   font-size:16px;
+  background-color: #E9EDF0;
 }
 img, picture, video, canvas, svg {
   display: block;
@@ -47,4 +48,97 @@ p, h1, h2, h3, h4, h5, h6 {
 #app{
   height:100%;
   width:100%;
+}
+
+
+
+@layer components{
+
+  .btn-active{
+    @apply py-2 bg-black text-white rounded-md px-2;
+    
+  }
+
+  .btn-inactive{
+    @apply py-2 text-black rounded-md border-black border-2 px-2;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+/* Following are some default classes for the project */
+/* Utility classes */
+@layer utilities {
+    /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 26rem) {
+      .common-container {
+        @apply px-2;
+      }
+    }
+
+
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (min-width: 26rem) {
+      .common-container {
+        @apply px-4;
+      }
+    }
+
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (min-width: 48rem) {
+      .common-container {
+        @apply px-12;
+      }
+    }
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 64rem) {
+        .common-container {
+          padding:0 2rem;
+          max-width:600px;
+          margin-left:auto;
+          margin-right:auto;
+          /* box-shadow:0px 0px 60px rgba(1, 10, 41,.16); */
+        }
+    }
+
+      /* Extra large devices (large laptops and desktops, 1200px and up) */
+      @media only screen and (min-width: 100rem) {
+        .common-container {
+            padding:0 2rem;
+            max-width:600px;
+            margin-left:auto;
+            margin-right:auto;
+            /* box-shadow:0px 0px 30px rgba(1, 10, 41,.1); */
+        }
+      }
+
+    .email::-webkit-input-placeholder {  
+    /* Firefox, Chrome, Opera */ 
+    /* padding-left: 24px;  */
+    }
+    .email::-moz-placeholder {  
+    /* Firefox, Chrome, Opera */ 
+    /* padding-left: 24px;  */
+    }
+    .email::-ms-input-placeholder {  
+    /* Firefox, Chrome, Opera */ 
+    /* padding-left: 24px;  */
+    }
+    .email::-webkit-input-placeholder {  
+    /* Firefox, Chrome, Opera */ 
+    /* padding-left: 24px;  */
+    }
+    .email:focus{
+    outline:none;
+    }
+    .email{
+    text-indent:32px
+    }
 }

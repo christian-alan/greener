@@ -1,12 +1,74 @@
 <template>
-    <div>
-       This is onboarding!
+    <div class=" flex flex-col h-full justify-between py-5">
+        <!-- Progress component -->
+        <div class="flex">
+            <div class="progress" :class="progressStage===1?'progress-on':'progress-off'"></div>
+            <div class="progress ml-2 mr-1" :class="progressStage===2?'progress-on':'progress-off'"></div>
+            <div class="progress ml-1 mr-2" :class="progressStage===3?'progress-on':'progress-off'"></div>
+            <div class="progress" :class="progressStage===4?'progress-on':'progress-off'"></div>
+        </div>
+
+
+
+        <!-- Content -->
+        <InformationVue v-if="progressStage===1" v-on:click="stageCounter()"></InformationVue>
+        <ScanVue v-if="progressStage===2" v-on:click="stageCounter()"></ScanVue>
+        <RecipeVue v-if="progressStage===3" v-on:click="stageCounter()"></RecipeVue>
+        <StandardsVue v-if="progressStage===4" v-on:click="stageCounter()"></StandardsVue>
+        <!-- CTAs -->
+        <div class="flex justify-between ">
+            <button class="btn-active w-full mr-2">Register</button>
+            <button class="btn-inactive w-full ml-2">Login</button>
+        </div>
     </div>
 </template>
 <script>
+import InformationVue from "../components/onboarding/Information.vue";
+import RecipeVue from "../components/onboarding/Recipe.vue";
+import ScanVue from '../components/onboarding/Scan.vue';
+import StandardsVue from '../components/onboarding/Standards.vue';
+
 export default{
-    
+
+    data(){
+        return{
+            progressStage:Number,
+            counter:1
+        }
+    },
+    components:{
+        InformationVue,
+        ScanVue,
+        StandardsVue,
+        RecipeVue
+    },
+    methods:{
+        stageCounter(){
+            if(this.counter===4){
+                this.counter = 0;
+            }
+            this.counter++;
+            this.progressStage = this.counter;
+        }
+    },
+    async created(){
+        this.progressStage = this.counter;
+    }
 }
 </script>
-<style>
+<style scoped>
+
+    .progress{     
+        border-radius:10px;
+        height:6px;
+        width:100%;
+    }
+    .progress-on{
+        background: #34CB7C;
+   
+    }
+    .progress-off{
+        background: #B9B9B9;
+    }
+
 </style>
