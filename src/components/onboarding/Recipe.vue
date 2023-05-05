@@ -3,7 +3,7 @@
         <!-- Image -->
         <img src="../../assets/images/recipe.png" width="255" height="255" alt="Recipe image"/>
         <!-- Text -->
-        <p class="text-center">Get access to  recipes based on seasonal foods.</p>
+        <p class="text-center">Get access to  recipes based <br> on seasonal foods.</p>
         <p>
 
         </p>

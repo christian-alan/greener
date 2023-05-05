@@ -1,5 +1,5 @@
 <template>
-    <div class=" flex flex-col h-full justify-between py-5">
+    <div class="common-container flex flex-col h-full justify-between py-5">
         <!-- Progress component -->
         <div class="flex">
             <div class="progress" :class="progressStage===1?'progress-on':'progress-off'"></div>
@@ -8,17 +8,19 @@
             <div class="progress" :class="progressStage===4?'progress-on':'progress-off'"></div>
         </div>
 
-
-
         <!-- Content -->
-        <InformationVue v-if="progressStage===1" v-on:click="stageCounter()"></InformationVue>
+        <InformationVue ref="" v-if="progressStage===1" v-on:click="stageCounter()"></InformationVue>
         <ScanVue v-if="progressStage===2" v-on:click="stageCounter()"></ScanVue>
         <RecipeVue v-if="progressStage===3" v-on:click="stageCounter()"></RecipeVue>
-        <StandardsVue v-if="progressStage===4" v-on:click="stageCounter()"></StandardsVue>
+        <StandardsVue v-if="progressStage>=4" v-on:click="stageCounter()"></StandardsVue>
+
+
         <!-- CTAs -->
         <div class="flex justify-between ">
-            <button class="btn-active w-full mr-2">Register</button>
-            <button class="btn-inactive w-full ml-2">Login</button>
+            <!-- <button class="btn-active w-full mr-2">Register</button>
+            <button class="btn-inactive w-full ml-2">Login</button> -->
+
+            <button  class="w-full" :class="progressStage<4?'btn-inactive':'btn-active'" v-on:click="gotoHome()">Goto home</button>
         </div>
     </div>
 </template>
@@ -27,6 +29,8 @@ import InformationVue from "../components/onboarding/Information.vue";
 import RecipeVue from "../components/onboarding/Recipe.vue";
 import ScanVue from '../components/onboarding/Scan.vue';
 import StandardsVue from '../components/onboarding/Standards.vue';
+import Hammer from 'hammerjs';
+
 
 export default{
 
@@ -44,13 +48,27 @@ export default{
     },
     methods:{
         stageCounter(){
-            if(this.counter===4){
-                this.counter = 0;
-            }
+          
             this.counter++;
             this.progressStage = this.counter;
+        },
+        gotoHome(){
+            this.$router.push('/');
         }
     },
+
+
+    async mounted(){
+        const hammertime = new Hammer(card);
+
+        hammertime.on('swipe', (event) => {
+        if (event.direction === Hammer.DIRECTION_RIGHT) {
+            // handle right swipe
+        } else if (event.direction === Hammer.DIRECTION_LEFT) {
+            // handle left swipe
+        }
+        });
+     },
     async created(){
         this.progressStage = this.counter;
     }

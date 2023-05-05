@@ -3,7 +3,7 @@
         <!-- Image -->
         <img src="../../assets/images/standards.png" width="255" height="255" alt="Standards image"/>
         <!-- Text -->
-        <p class="text-center">Find out what the sustainable standards of your product mean.</p>
+        <p class="text-center">Find out what the sustainable standards <br> of your product mean.</p>
         <p>
 
         </p>

@@ -5,7 +5,7 @@ export default {}
 </script>
 
 <template>
-  <div class="common-container w-full h-full">
+  <div class="w-full h-full">
      <RouterView></RouterView>
   </div>
 </template>
