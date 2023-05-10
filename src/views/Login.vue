@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col items-center justify-end h-1/3 ">
+    <div class="flex flex-col items-center justify-end h-1/4 ">
         <!-- Intructions -->
         <!-- 0. To access this component use the link: http://localhost:5173/login -->
         <!-- 1. Add the logo. Use the SVG version. I have created the component for the logo. With this approach the logo has been turned into a reusable component. -->
@@ -15,8 +15,8 @@
 
     <div class="flex flex-col justify-center items-center h-1/4">
 
-        <input type="text" placeholder="E-mail" class="placeholder-white bg-gray-400 outline-none bg-gray-400 shadow-md rounded-full w-2/3 h-10 px-2 py-3 my-2">
-        <input type="text" placeholder="Password" class="placeholder-white bg-gray-400 outline-none bg-gray-400 shadow-md rounded-full w-2/3 h-10 px-2 py-3 my-2">
+        <input type="text" placeholder="E-mail" class="placeholder-white bg-gray-400 outline-none  shadow-md rounded-full w-2/3 h-10 px-2 py-3 my-2">
+        <input type="text" placeholder="Password" class="placeholder-white bg-gray-400 outline-none  shadow-md rounded-full w-2/3 h-10 px-2 py-3 my-2">
 
     </div>
 
