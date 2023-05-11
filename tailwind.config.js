@@ -14,7 +14,8 @@ module.exports = {
       phone: { max: '26rem' },
       cm: { max: '64rem' },
     }, 
-    extend: {},
+    extend: {
+    },
   },
   plugins: [],
 }

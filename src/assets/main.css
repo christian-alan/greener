@@ -1,8 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 /* CSS reset properties */
 
+
+
+/*@import url("src/components/fonts/static/Inter-Regular.ttf");*/
 
 [v-cloak] {
   display: none;
@@ -12,7 +17,7 @@
 }
 * {
   margin: 0;
-  font-family: 'Lexend', sans-serif;
+  font-family: 'Inter', sans-serif;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
@@ -48,3 +53,6 @@ p, h1, h2, h3, h4, h5, h6 {
   height:100%;
   width:100%;
 }
+
+
+
