@@ -9,7 +9,7 @@
 
   <div class="flex flex-col justify-center items-center h-2/5">
 
-    <input type="text" placeholder="First name" class="placeholder-white bg-gray-400 outline-none  shadow-md rounded-full w-2/3 h-10 px-4 py-3 my-2">
+    <input type="text" placeholder="First name" class="txt-field-login">
     <input type="text" placeholder="Last name" class="placeholder-white bg-gray-400 outline-none  shadow-md rounded-full w-2/3 h-10 px-2 py-3 my-2">
     <input type="text" placeholder="E-mail" class="placeholder-white bg-gray-400 outline-none  shadow-md rounded-full w-2/3 h-10 px-2 py-3 my-2">
     <input type="text" placeholder="Create a password" class="placeholder-white bg-gray-400 outline-none  shadow-md rounded-full w-2/3 h-10 px-2 py-3 my-2">
