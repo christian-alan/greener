@@ -16,26 +16,32 @@ const router = createRouter({
             component:Onboarding
         },
         {
+            path:"/profile",
+            name:"profile",
+            component:Profile
+        },
+        {
+            path:"/seasonalFoods",
+            name:"seasonal-foods",
+            component:SeasonalFoods,
+        },
+        {
             path:"/",
             name:"home",
             component:Home,
-            children:[
-                {
-                    path:"/",
-                    name:"seasonal-foods",
-                    component:SeasonalFoods,
-                },
-                {
-                    path:"/",
-                    name:"learn-more",
-                    component:LearnMore,
-                },
-                {
-                    path:"/",
-                    name:"profile",
-                    component:Profile,
-                },
-            ]
+            // children:[
+              
+            //     {
+            //         path:"/",
+            //         name:"learn-more",
+            //         component:LearnMore,
+            //     },
+            //     {
+            //         path:"/",
+            //         name:"profile",
+            //         component:Profile,
+            //     },
+            // ]
         },
         {
             path:"/login",

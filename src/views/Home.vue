@@ -3,9 +3,6 @@
         <!-- Appbar -->
         <AppBarVue></AppBarVue>
 
-
-
-        
         <!--Body -->
         <div class="h-full common-container">
             <!--Greeting -->
@@ -43,7 +40,7 @@
                         <p class="font-bold text-xl">Apple</p>
                         <p class="text-xs opacity-50">Type: Aroma</p>
                         <p class="text-xs opacity-50">origin: Sweden</p>
-                        <button class="mt-5 btn-active w-full mr-2 text-xs">Explore seasonal foods</button>
+                        <button class="mt-5 btn-active w-full mr-2 text-xs" @click="gotoLearnMore()" >Explore seasonal foods</button>
                     </div>
                 </div>
             </div>
@@ -63,9 +60,6 @@
             </div>
         </div>
 
-
-       
-
         <BottomBarVue></BottomBarVue>
 
     </div>
@@ -79,6 +73,10 @@ export default{
         BottomBarVue
     },
     methods:{
+     gotoLearnMore(){
+        this.$router.push({path:"/seasonalFoods", name:'seasonal-foods'});
+        console.log('hey');
+     },
      changeFruits(){
             let counter = 0; 
             setInterval(() =>{ 
@@ -99,11 +97,8 @@ export default{
    mounted(){
 
       this.element = this.$refs.greeting;
-      this.heading = this.$refs.heading;
-    
+      this.heading = this.$refs.heading;    
       this.changeFruits();
-
-
 
     },
 
