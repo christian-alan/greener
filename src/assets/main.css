@@ -1,8 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 /* CSS reset properties */
 
+
+
+/*@import url("src/components/fonts/static/Inter-Regular.ttf");*/
 
 [v-cloak] {
   display: none;
@@ -12,7 +17,7 @@
 }
 * {
   margin: 0;
-  font-family: 'Lexend', sans-serif;
+  font-family: 'Inter', sans-serif;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
@@ -51,17 +56,23 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 
-
 @layer components{
 
   .btn-active{
     @apply py-2 bg-black text-white rounded-md px-2;
-    
+
   }
 
   .btn-inactive{
     @apply py-2 text-black rounded-md border-black border-2 px-2;
   }
+
+
+
+  .txt-field-login{
+    @apply placeholder-white bg-gray-400 outline-none  shadow-md rounded-full w-2/3 h-10 px-4 py-3 my-2;
+  }
+
 
 
   .card{
@@ -84,6 +95,7 @@ p, h1, h2, h3, h4, h5, h6 {
 /* Following are some default classes for the project */
 /* Utility classes */
 @layer utilities {
+
     /* Extra small devices (phones, 600px and down) */
     @media only screen and (max-width: 26rem) {
       .common-container {
@@ -150,3 +162,4 @@ p, h1, h2, h3, h4, h5, h6 {
     text-indent:32px
     }
 }
+
