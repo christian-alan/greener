@@ -1,4 +1,5 @@
 <template>
+
   <div class="flex flex-col items-center justify-end h-1/4 ">
     <!-- Intructions -->
     <!-- 0. To access this component use the link: http://localhost:5173/login -->
@@ -30,14 +31,42 @@
   </div>
 
 
+
 </template>
 <script>
 import logo from "../components/icons/Logo.vue"
 
 export default{
+
   components:{
     logo
   }
+
+    data(){
+        return {
+            id:0,
+            newTodo:'',
+            todos:[
+                {
+                    id:this.id++,
+                    text:'hey'
+                }
+            ]
+        }
+    },
+    methods:{
+        addTodo(){
+            console.log(this.newTodo);
+            this.todos.push({id:this.id++,text:this.newTodo});
+        },
+        removeTodo(){
+
+        }
+    },
+    async created(){
+        
+    }
+
 }
 </script>
 <style>
