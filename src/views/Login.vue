@@ -40,7 +40,7 @@ export default{
 
   components:{
     logo
-  }
+  },
 
     data(){
         return {
