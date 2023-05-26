@@ -22,7 +22,7 @@
                 <div>
                     <p>This week’s seasonal vegetable is</p>
                     <p class="font-bold">Beatroot</p>
-                    <p class="text-sm underline opacity-30">Explore the fruit and more recipes⇒</p>
+                    <p class="text-sm underline opacity-30">Explore the fruit and more <recipe></recipe>s⇒</p>
                 </div>
                 <div>
                     <img src=".././assets/images/beatroot.png" width="90" height="90" alt="beat root">
