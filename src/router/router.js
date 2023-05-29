@@ -29,6 +29,10 @@ const router = createRouter({
             name:"seasonal-foods",
             component:SeasonalFoods,
         },
+            path:"/learnMore",
+            name:"learn-more",
+            component:LearnMore
+        },
         {
             path:"/",
             name:"home",

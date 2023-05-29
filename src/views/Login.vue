@@ -33,6 +33,7 @@
 
 
 </template>
+
 <script>
 import logo from "../components/icons/Logo.vue"
 
