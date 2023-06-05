@@ -13,8 +13,12 @@ module.exports = {
       tablet: { max: '48rem' },
       phone: { max: '26rem' },
       cm: { max: '64rem' },
-    }, 
+    },
     extend: {
+      colors: {
+        'greener': '#34CB7C',
+        'darkgreen': '#1F9657'
+      },
     },
   },
   plugins: [],

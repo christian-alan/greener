@@ -21,6 +21,7 @@
             <div class="w-full py-8 px-4 flex items-center justify-between" style="background-color:#E0E0E0;">
                 <div>
                     <p>This week’s seasonal vegetable is</p>
+
                     <p class="font-bold">Beetroot</p>
                     <p class="text-sm underline opacity-30">Explore the fruit and more recipes⇒</p>
                 </div>
