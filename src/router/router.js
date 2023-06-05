@@ -9,8 +9,8 @@ import Registration from '../views/Registration.vue';
 import SeasonalFoods from '../views/SeasonalFoods.vue';
 import LearnMore from '../views/LearnMore.vue';
 import Profile from '../views/Profile.vue';
-import recipes from "@/views/Recipes.vue";
 import Recipes from "@/views/Recipes.vue";
+
 
 
 const router = createRouter({
@@ -35,7 +35,11 @@ const router = createRouter({
         {
             path:"/seasonalFoods",
             name:"seasonal-foods",
-            component:SeasonalFoods,
+            component:SeasonalFoods
+        },
+        {   path:"/learnMore",
+            name:"learn-more",
+            component:LearnMore
         },
         {
             path:"/",
@@ -64,6 +68,11 @@ const router = createRouter({
             path:"/Registration",
             name:"registration",
             component:Registration
+        },
+        {
+            path:"/Recipe",
+            name:"recipes",
+            component:Recipes
         }
 
     ]
