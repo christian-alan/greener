@@ -8,10 +8,9 @@
                 <path d="M9.99998 16.275C9.61859 16.275 9.30231 15.9584 9.30231 15.5766V12.7828C9.30231 12.401 9.61859 12.0844 9.99998 12.0844C10.3814 12.0844 10.6977 12.401 10.6977 12.7828V15.5766C10.6977 15.9584 10.3814 16.275 9.99998 16.275Z" fill="#151D23"/>
             </svg>
                 
-
         </div>
 
-        <div class="relative flex w-full justify-center">
+        <!-- <div class="relative flex w-full justify-center">
 
         <button class="h-16 w-16 flex justify-center items-center absolute -top-12 rounded-full" style="background-color:#34CB7C;">
             
@@ -23,7 +22,7 @@
             
         </button>
 
-    </div>
+        </div> -->
 
         <!-- Profile -->
         <div class="flex rounded-full h-12 w-16 flex-col justify-center items-center relative" @click="gotoProfile()" v-bind:style="getCurrentRoute != '/' ? 'background-color:#34CB7C50;':''">

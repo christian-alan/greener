@@ -1,11 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
-
 import Onboarding from '../views/Onboarding.vue';
 import Login from '../views/Login.vue';
 import Home from '../views/Home.vue';
-
 import Registration from '../views/Registration.vue';
-
 import SeasonalFoods from '../views/SeasonalFoods.vue';
 import LearnMore from '../views/LearnMore.vue';
 import Profile from '../views/Profile.vue';
@@ -27,9 +24,9 @@ const router = createRouter({
         },
 
         {
-           path:"/recipes",
-           name:"recipes",
-           component:Recipes
+           path:"/recipe",
+           name:"recipe",
+           component:Recipe
         },
         {
             path:"/seasonalFoods",
@@ -45,19 +42,6 @@ const router = createRouter({
             path:"/",
             name:"home",
             component:Home,
-            // children:[
-              
-            //     {
-            //         path:"/",
-            //         name:"learn-more",
-            //         component:LearnMore,
-            //     },
-            //     {
-            //         path:"/",
-            //         name:"profile",
-            //         component:Profile,
-            //     },
-            // ]
         },
         {
             path:"/login",
@@ -69,11 +53,6 @@ const router = createRouter({
             name:"registration",
             component:Registration
         },
-        {
-            path:"/recipe",
-            name:"recipe",
-            component:Recipe
-        }
 
     ]
   });
