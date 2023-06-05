@@ -32,7 +32,10 @@
                 <div class="w-3/4 card mr-1 overflow-auto">  
                     <div class="grid grid-cols-3 p-4 gap-5 ">
                         <div class="flex flex-col justify-center items-center" v-for="image of images" :key="image.id">
-                            <img ref="fruits" :src="image" @click="gotoFruit()">
+
+                            <router-link :to="'/recipe/'">
+                                <img ref="fruits" :src="image">
+                            </router-link>
                             <p class="text-xs capitalize justify-center"></p>
                          </div>
                     </div>                  
@@ -75,7 +78,6 @@ methods:{
    async fetchImages(month){
         let i = 0;
         this.images = [];
-
         const pngs = await getAllImages(month);
         pngs.map((val)=>{
             val.then((v)=>{
@@ -83,15 +85,13 @@ methods:{
                 i++;
             }) 
         });
-
-        },
+    },
 
    
 },
 async created(){
     let i = 0;
     this.images = [];
-
     const pngs = await getAllImages("jan");
     pngs.map((val)=>{
         val.then((v)=>{
