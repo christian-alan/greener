@@ -22,7 +22,10 @@
   </div>
 
   <div class="flex flex-col justify-center items-center h-1/6">
-    <button  class="placeholder-white bg-black outline-none shadow-md rounded-full w-2/4 h-2/4 text-white">
+
+
+
+    <button   class="placeholder-white bg-black outline-none shadow-md rounded-full w-2/4 h-2/4 text-white" @click="login">
       Continue
     </button>
 
@@ -40,32 +43,47 @@ export default{
 
   components:{
     logo
-  }
+  },
 
     data(){
         return {
-            id:0,
-            newTodo:'',
-            todos:[
-                {
-                    id:this.id++,
-                    text:'hey'
-                }
-            ]
-        }
+
+            username: '',
+            password: ''
+        };
     },
-    methods:{
-        addTodo(){
+    methods: {
+        addTodo() {
             console.log(this.newTodo);
-            this.todos.push({id:this.id++,text:this.newTodo});
+            this.todos.push({ id: this.id++, text: this.newTodo });
         },
-        removeTodo(){
+        removeTodo() {
+            // Add logic to remove a todo
+        },
+        login() {
+            // Our local database, can be created outside of the method as well
+            const database = [
+                { username: 'sammow', password: '1234' },
+                { username: 'alacri', password: '1234' },
+                { username: 'tuvkin', password: '1234' },
+                { username: 'larost', password: '1234' },
+                // Add more user objects as needed
+            ];
+           // Find a user with matching credentials in the database
+            const user = database.find((user) => user.username === this.username && user.password === this.password);
+
+            if (user) {
+                // Successful login
+                console.log('Logged in!');
+                this.$router.push('/');
+            } else {
+                // Invalid credentials
+                console.log('Invalid username or password');
+            }
 
         }
     },
-    async created(){
-        
-    }
+
 
 }
 </script>
