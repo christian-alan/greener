@@ -77,8 +77,7 @@ export default{
                 { username: 'larost', password: '1234' },
                 // Add more user objects as needed
             ];
-
-            // Find a user with matching credentials in the database
+           // Find a user with matching credentials in the database
             const user = database.find((user) => user.username === this.username && user.password === this.password);
 
             if (user) {

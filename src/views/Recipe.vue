@@ -11,11 +11,11 @@
             <div class="px-2">  
                 
                 <div class="flex">
-                    <button>
+                    <router-link :to="'/seasonalFoods'">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M9.41424 12L16.7071 19.2929L15.2929 20.7071L6.58582 12L15.2929 3.29291L16.7071 4.70712L9.41424 12Z" fill="#151515"/>
                         </svg>
-                    </button>
+                    </router-link>
 
                     <h1 ref="heading" class="text-2xl font-bold ">Cauliflower ECO</h1>
                 </div>
@@ -38,7 +38,6 @@
                     <p class="text-white font-bold text-center pt-3 text-lg">Cauliflower is in season now!</p>   
                     
                  <!-- Triangle  -->
-
                     <div class="flex child absolute bottom-0">
                         <triangle v-for="triangle in triangles" :key="triangle.id" />
                     </div>

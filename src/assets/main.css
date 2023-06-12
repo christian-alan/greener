@@ -82,6 +82,14 @@ p, h1, h2, h3, h4, h5, h6 {
     border-radius: 16px;
   }
 
+  .calendar-card{
+    background: #F1F4F2;
+    border: 0.5px solid #FEFEFF;
+    box-shadow: 10px 10px 24px rgba(166, 180, 200, 0.7), -12px -12px 20px rgba(255, 255, 255, 0.8);
+    border-top-left-radius:16px;
+    border-bottom-left-radius:16px;
+  }
+
 }
 
 

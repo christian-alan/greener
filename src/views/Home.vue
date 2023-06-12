@@ -20,13 +20,14 @@
             <!--This week's banner -->
             <div class="w-full py-8 px-4 flex items-center justify-between" style="background-color:#E0E0E0;">
                 <div>
-                    <p>This week’s seasonal vegetable is</p>
+                    <p class="text-sm">This week’s seasonal 
+                        vegetable is <span class="text-sm font-bold">Beetroot</span>
+                    </p>
 
-                    <p class="font-bold">Beetroot</p>
-                    <p class="text-sm underline opacity-30">Explore the fruit and more recipes⇒</p>
+                    <p class="text-sm underline opacity-30">Explore receipes⇒</p>
                 </div>
                 <div>
-                    <img src=".././assets/images/beatroot.png" width="90" height="90" alt="beat root">
+                    <img src=".././assets/images/beatroot.png" width="100" height="100" alt="beat root">
                 </div>
             </div>
 
@@ -36,19 +37,23 @@
            
                 <p class="font-bold text-sm leading-5 mb-4">This months top seasonal items</p>
                 <div class="card p-4 flex flex-row">
-                    <img :src="`src/assets/images/${showFruits}`" width="122" height="90" alt="beat root">
-                    <div class="ml-2">
-                        <p class="font-bold text-xl">Apple</p>
+                    <div class="overflow-hidden relative flex flex-row w-1/2">
+                        <img v-if="counter === 0" class="slide absolute top-0" src="src/assets/images/apple.png" width="122" height="90" alt="apple">
+                        <img v-if="counter === 1" class="slide absolute top-0" src="src/assets/images/grapes.png" width="122" height="90" alt="grapes">
+                        <img v-if="counter === 2" class="slide absolute top-0 " src="src/assets/images/strawberries.png" width="122" height="90" alt="strawberries">
+                        <img v-if="counter === 3" class="slide absolute top-0 " src="src/assets/images/beatroot.png" width="122" height="90" alt="strawberries">
+                    </div>
+
+                    <div class="ml-2 w-1/2">
+                        <p  class="font-bold text-xl">{{counter === 0 ? 'Apple' : counter === 1 ? 'Grapes' : counter === 2 ? 'Strawberry' : 'Beatroot' }}</p>
                         <p class="text-xs opacity-50">Type: Aroma</p>
                         <p class="text-xs opacity-50">origin: Sweden</p>
-                        <button class="mt-5 btn-active w-full mr-2 text-xs" @click="gotoLearnMore()" >Explore seasonal foods</button>
+                        <button class="mt-5 btn-active w-full mr-2 text-xs" @click="gotoLearnMore()" >Explore foods</button>
                     </div>
                 </div>
             </div>
 
-
-
-             <!--This week's Recipes -->
+            <!--This week's Recipes -->
              <div class="w-full py-8 px-4 flex items-center justify-between" style="background-color:#CBDDD2;">
                 <div>
                     <p class="font-bold text-sm leading-5">Interested to know any <br> recipes  for seasonal foods</p>
@@ -78,51 +83,56 @@ export default{
         this.$router.push({path:"/seasonalFoods", name:'seasonal-foods'});
         console.log('hey');
      },
-     changeFruits(){
-            let counter = 0; 
+     animateFruits(){
             setInterval(() =>{ 
-                this.showFruits = this.fruits[counter];
-                counter++; 
-                if(counter === 4){
-                    counter = 0;
+                this.counter++; 
+                if(this.counter === 4){
+                    this.counter = 0;
                 }
-
-            },1000)
+            },2000)
         },
-
         changeText(){
             this.element.innerText = "Hey Hows it going!"
             this.heading.innerText = "Hey Alan, hope you are doing well";
         }
-    },
+     },
    mounted(){
-
+    this.animateFruits();
       this.element = this.$refs.greeting;
-      this.heading = this.$refs.heading;    
-      this.changeFruits();
-
-    },
-
-    computed:{
-        imagePath() {
-             return `@/assets/images/${this.showFruits}`;
-        },
+      this.heading = this.$refs.heading; 
     },
     data(){
         return {
             heading:"",
             element: "",
             showFruits:"apple.png",
-            fruits:[
-                "apple.png",
-                "grapes.png",
-                "strawberries.png",
-                "redcabbage.png"
-            ]
+            counter:0,
         }
     }
  
 }
 </script>
 <style>
+
+
+.slide {
+    animation: slideAnimation 2s infinite; /* Adjust the animation duration as needed */
+  }
+
+@keyframes slideAnimation {
+    0% {
+      transform: translateX(-100%);
+      transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+      transition-duration: 800ms;
+    }
+    50% {
+      transform: translateX(0%);
+
+    }
+    100% {
+      transform: translateX(200%);
+      transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+      transition-duration: 50ms;
+    }
+  }
 </style>
