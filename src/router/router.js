@@ -10,6 +10,8 @@ import SeasonalFoods from '../views/SeasonalFoods.vue';
 import LearnMore from '../views/LearnMore.vue';
 import Profile from '../views/Profile.vue';
 import Recipes from "@/views/Recipes.vue";
+import RecipesFiltered from "@/views/RecipesFiltered.vue"
+
 
 
 
@@ -70,10 +72,19 @@ const router = createRouter({
             component:Registration
         },
         {
-            path:"/Recipe",
+            path:"/Recipes",
             name:"recipes",
             component:Recipes
-        }
+        },
+        {
+            path:"/RecipesFiltered",
+            name:"recipesfiltered",
+            component:RecipesFiltered
+        },
+     
+
+
+
 
     ]
   });
