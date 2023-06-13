@@ -63,7 +63,8 @@
 
       <!-- Recipes -->
       <p class="pt-4 pb-3 text-lg font-semibold">Recipes</p>
-      <ReciepeVue></ReciepeVue>
+     
+      <ReciepeVue v-for="recipe in recipes" :recipe="recipe"></ReciepeVue>
 
 
 
@@ -81,7 +82,9 @@ import BottomBarVue from '../components/common/BottomBar.vue';
 import Ingredient from '../components/recipe/Ingredient.vue';
 import IngredientWhite from '../components/recipe/IngredientWhite.vue';
 import ReciepeVue from '../components/recipe/Reciepe.vue';
-import getAllRecipes from '../functions/db.functions';
+import {  db } from '../main.js';
+import { onValue,ref } from "firebase/database";
+
 
 export default {
   components:{
@@ -92,11 +95,17 @@ export default {
     ReciepeVue
   },
   async created(){
-    const recipes = await getAllRecipes();
-    console.log(recipes);
+
+    // Calls the recipe data
+    const starCountRef = ref(db, 'recipe');
+    onValue(starCountRef, (snapshot) => {
+        this.recipes = snapshot.val();
+        console.log(this.recipes);
+    });
   },
   data() {
     return{
+      recipes:[],
       searchText:'',
       filter:false,
       ingredients:[
