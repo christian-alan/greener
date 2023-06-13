@@ -9,10 +9,10 @@
         </div>
 
         <!-- Content -->
-        <InformationVue ref="" v-if="progressStage===1" v-on:click="stageCounter()"></InformationVue>
-        <ScanVue v-if="progressStage===2" v-on:click="stageCounter()"></ScanVue>
-        <RecipeVue v-if="progressStage===3" v-on:click="stageCounter()"></RecipeVue>
-        <StandardsVue v-if="progressStage>=4" v-on:click="stageCounter()"></StandardsVue>
+        <InformationVue class="animate__slideOutLeft" v-if="progressStage===1" @click="onSwipe()"></InformationVue>
+        <ScanVue class="animate__slideOutLeft" v-if="progressStage===2" @click="onSwipe()"></ScanVue>
+        <RecipeVue class="animate__slideOutLeft" v-if="progressStage===3" @click="onSwipe()"></RecipeVue>
+        <StandardsVue class="animate__slideOutLeft" v-if="progressStage>=4" @click="onSwipe()"></StandardsVue>
 
 
         <!-- CTAs -->
@@ -29,14 +29,14 @@ import InformationVue from "../components/onboarding/Information.vue";
 import RecipeVue from "../components/onboarding/Recipe.vue";
 import ScanVue from '../components/onboarding/Scan.vue';
 import StandardsVue from '../components/onboarding/Standards.vue';
-import Hammer from 'hammerjs';
+import 'animate.css';
 
 
 export default{
 
     data(){
         return{
-            progressStage:Number,
+            progressStage:1,
             counter:1
         }
     },
@@ -48,29 +48,34 @@ export default{
     },
     methods:{
         stageCounter(){
-          
-            this.counter++;
-            this.progressStage = this.counter;
+            if(this.counter < 4){
+                this.counter++;
+                this.progressStage = this.counter;
+            }else return;
         },
         gotoHome(){
             this.$router.push('/');
+        },
+        onSwipe(){
+            console.log('onSwipe');
+            if(this.counter < 4){
+                this.counter++;
+                this.progressStage = this.counter;
+            }else return;
         }
     },
-
-
     async mounted(){
-        const hammertime = new Hammer(card);
 
-        hammertime.on('swipe', (event) => {
-        if (event.direction === Hammer.DIRECTION_RIGHT) {
-            // handle right swipe
-        } else if (event.direction === Hammer.DIRECTION_LEFT) {
-            // handle left swipe
-        }
-        });
-     },
+        // hammertime.on('swipe', (event) => {
+        //     if (event.direction === Hammer.DIRECTION_RIGHT) {
+        //         // handle right swipe
+        //     } else if (event.direction === Hammer.DIRECTION_LEFT) {
+        //         // handle left swipe
+        //     }
+        // });
+    },
     async created(){
-        this.progressStage = this.counter;
+        
     }
 }
 </script>
@@ -88,5 +93,7 @@ export default{
     .progress-off{
         background: #B9B9B9;
     }
+
+    
 
 </style>

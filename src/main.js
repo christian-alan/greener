@@ -5,6 +5,7 @@ import './assets/main.css'
 import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
 import { getDatabase} from "firebase/database";
+import VueHammer from 'vue2-hammer';
 
 const app = createApp(App);
 
@@ -19,6 +20,7 @@ const firebaseConfig = {
     measurementId: "G-6PVBK0HRE0"
 };
 
+app.use(VueHammer);
 app.use(router);
 
 // Initialize Firebase

@@ -8,10 +8,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
     "firebase": "^9.22.1",
     "hammerjs": "^2.0.8",
     "vue": "^3.2.47",
-    "vue-router": "^4.1.6"
+    "vue-router": "^4.1.6",
+    "vue2-hammer": "^2.1.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",

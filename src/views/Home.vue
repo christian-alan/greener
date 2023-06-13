@@ -132,7 +132,7 @@ export default{
     100% {
       transform: translateX(200%);
       transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
-      transition-duration: 50ms;
+      transition-duration: 10ms;
     }
   }
 </style>
