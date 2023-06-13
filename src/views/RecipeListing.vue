@@ -6,11 +6,11 @@
     <div class="h-full common-container">
       <!-- Heading -->
       <div class="flex">
-            <button>
+            <router-link to="/"> 
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M9.41424 12L16.7071 19.2929L15.2929 20.7071L6.58582 12L15.2929 3.29291L16.7071 4.70712L9.41424 12Z" fill="#151515"/>
                 </svg>
-            </button>
+            </router-link>
             <h1 ref="heading" class="text-2xl font-bold p-4">Recipes</h1>
             </div>
       <!-- Searchbar -->
@@ -81,8 +81,9 @@ import BottomBarVue from '../components/common/BottomBar.vue';
 import Ingredient from '../components/recipe/Ingredient.vue';
 import IngredientWhite from '../components/recipe/IngredientWhite.vue';
 import ReciepeVue from '../components/recipe/Reciepe.vue';
+import getAllRecipes from '../functions/db.functions';
 
-    export default {
+export default {
   components:{
     AppBarVue,
     BottomBarVue,
@@ -91,7 +92,8 @@ import ReciepeVue from '../components/recipe/Reciepe.vue';
     ReciepeVue
   },
   async created(){
-    console.log(this.searchText);
+    const recipes = await getAllRecipes();
+    console.log(recipes);
   },
   data() {
     return{
