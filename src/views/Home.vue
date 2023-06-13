@@ -57,8 +57,8 @@
              <div class="w-full py-8 px-4 flex items-center justify-between" style="background-color:#CBDDD2;">
                 <div>
                     <p class="font-bold text-sm leading-5">Interested to know any <br> recipes  for seasonal foods</p>
-                    <p class="text-sm underline opacity-30">We have an endless selection</p>
-                     <button class="mt-5 btn-active w-full mr-2 text-xs">Find recipes here</button>
+                    <p class="text-sm underline opacity-30 mb-5">We have an endless selection</p>
+                     <router-link to="/recipe-listing"  class="btn-active w-full mr-2 text-xs">Find recipes here</router-link>
                 </div>
                 <div>
                     <img src=".././assets/images/recipe.png" width="90" height="90" alt="beat root">

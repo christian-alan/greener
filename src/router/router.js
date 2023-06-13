@@ -6,8 +6,8 @@ import Registration from '../views/Registration.vue';
 import SeasonalFoods from '../views/SeasonalFoods.vue';
 import LearnMore from '../views/LearnMore.vue';
 import Profile from '../views/Profile.vue';
-
-import Recipe from '../views/Recipe.vue'
+import RecipesListing from "@/views/RecipeListing.vue";
+import FoodInfo from '../views/FoodInfo.vue'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -21,12 +21,6 @@ const router = createRouter({
             path:"/profile",
             name:"profile",
             component:Profile
-        },
-
-        {
-           path:"/recipe",
-           name:"recipe",
-           component:Recipe
         },
         {
             path:"/seasonalFoods",
@@ -53,7 +47,16 @@ const router = createRouter({
             name:"registration",
             component:Registration
         },
-
+        {
+            path:"/recipe-listing",
+            name:"recipes",
+            component:RecipesListing
+        },
+        {
+            path:"/food-info",
+            name:"recipe",
+            component:FoodInfo
+         }
     ]
   });
 export default router;
