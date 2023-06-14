@@ -22,15 +22,10 @@
   </div>
 
   <div class="flex flex-col justify-center items-center h-1/6">
-<<<<<<< Updated upstream
 
-
-
-    <button   class="placeholder-white bg-black outline-none shadow-md rounded-full w-2/4 h-2/4 text-white" @click="login">
-=======
     <audio ref="audioPlayer" :src="soundFile"></audio>
     <button    class="placeholder-white bg-black outline-none shadow-md rounded-full w-2/4 h-2/4 text-white" @click="login">
->>>>>>> Stashed changes
+
       Continue
     </button>
 
@@ -83,25 +78,21 @@ export default{
             if (user) {
                 // Successful login
                 console.log('Logged in!');
-<<<<<<< Updated upstream
+
                 this.$router.push('/');
-=======
+
               setTimeout(() => {
                 this.$router.push('/');
               }, 1000); // Delay in milliseconds
->>>>>>> Stashed changes
+
             } else {
                 // Invalid credentials
                 console.log('Invalid username or password');
             }
-<<<<<<< Updated upstream
-
-        }
-=======
-        },
 
 
->>>>>>> Stashed changes
+
+
     },
 
 
