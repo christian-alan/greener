@@ -49,7 +49,6 @@
         },
         computed:{
             getCurrentRoute(){
-                console.log(this.$router.currentRoute.value.fullPath);
                 return this.$router.currentRoute.value.fullPath
             }
         }

@@ -17,18 +17,16 @@
                         </svg>
                     </router-link>
 
-                    <h1 ref="heading" class="text-2xl font-bold ">Cauliflower ECO</h1>
+                    <h1 ref="heading" class="text-2xl font-bold capitalize">{{foodName}}</h1>
                 </div>
 
                  <!-- Info -->
                 <div class="flex gap-5">
-                    <img src="src/assets/images/cauliflower.png" alt="Cauliflower" class="border border-white rounded-2xl shadow-2xl self-center">
+                    <img :src="foodImage" width="120" height="120" alt="Cauliflower" class="border border-white rounded-2xl shadow-2xl self-center">
                     <div class="flex flex-col mt-4 mb-4">
                         <p>Origin country: [Country]</p>
-                        <br>
                         <p><b>In season: [Month]</b></p>
-                        <br>
-                        <p><b>[Prize] kr/kg</b></p>
+                        <p><b>120 kr/kg</b></p>
                     </div>
                 </div>
 
@@ -97,14 +95,20 @@
 
     <script>
 
-    import AppBarVue from '../components/common/AppBar.vue';
-    import Triangle from '../components/triangles/Triangle.vue';
+import AppBarVue from '../components/common/AppBar.vue';
+import Triangle from '../components/triangles/Triangle.vue';
+import Storage from '../functions/storage.functions';
 
-    export default{
-        components:{
-            AppBarVue,
-            Triangle
-            
+export default{
+  components:{
+        AppBarVue,
+        Triangle
+     },
+  async created(){
+        this.foodName = this.$route.params.food;
+        this.path = `${this.$route.params.month}/${this.$route.params.food}.png`;
+        this.foodImage = await Storage.getFoodImage(this.path);
+    
   },
   data() {
     return {
@@ -119,23 +123,23 @@
         { id: 8 },
         { id: 9 },
       ],
-
+      foodImage:'',
+      path:'',
+      foodName:'',
       buttonText: "Read more",
       fullText: "This product is marked by the Keyhole, which means that it contain less sugars and salt, more fibre and wholegrain and healthier or less fat than food products of the same type that can not be labelled with the Keyhole.",
       isTextVisible: true,
       fullText1: "This product has been certified as organic by an authorised control agency or body. This means that the product has passed strict conditions on how it must be produced, processed, transported and stored. The product contain at least 95% organic ingredients and additionally, respect further strict conditions for the remaining 5%. Read more.",
       isTextVisible1: true,
-
     };
-    
   }
 
 }
 
 
-    </script>
+</script>
 
-    <style>
+<style>
 
 
 </style>

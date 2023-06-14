@@ -57,7 +57,6 @@ export default{
             this.$router.push('/');
         },
         onSwipe(){
-            console.log('onSwipe');
             if(this.counter < 4){
                 this.counter++;
                 this.progressStage = this.counter;

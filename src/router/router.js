@@ -7,7 +7,7 @@ import SeasonalFoods from '../views/SeasonalFoods.vue';
 import LearnMore from '../views/LearnMore.vue';
 import Profile from '../views/Profile.vue';
 import RecipesListing from "@/views/RecipeListing.vue";
-import FoodInfo from '../views/FoodInfo.vue'
+import FoodInfo from '../views/FoodInfo.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -53,8 +53,8 @@ const router = createRouter({
             component:RecipesListing
         },
         {
-            path:"/food-info",
-            name:"recipe",
+            path:"/food-info/:month/:food",
+            name:"food-info",
             component:FoodInfo
          }
     ]

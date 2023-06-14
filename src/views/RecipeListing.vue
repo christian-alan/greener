@@ -100,7 +100,6 @@ export default {
     const starCountRef = ref(db, 'recipe');
     onValue(starCountRef, (snapshot) => {
         this.recipes = snapshot.val();
-        console.log(this.recipes);
     });
   },
   data() {

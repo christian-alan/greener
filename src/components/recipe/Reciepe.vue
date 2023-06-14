@@ -27,7 +27,6 @@
 <script>
 export default{
     async created(){
-        console.log(recipe);
     },
     props: {
         recipe:[]

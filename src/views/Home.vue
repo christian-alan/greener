@@ -81,7 +81,7 @@ export default{
     methods:{
      gotoLearnMore(){
         this.$router.push({path:"/seasonalFoods", name:'seasonal-foods'});
-        console.log('hey');
+        
      },
      animateFruits(){
             setInterval(() =>{ 

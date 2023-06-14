@@ -34,7 +34,7 @@
                     <div class="grid grid-cols-3 p-4 gap-5 ">
                         <div class="flex flex-col justify-center items-center" v-for="image of images" :key="image.id">
                            
-                            <router-link :to="'/recipe/'" class="h-10 w-10">
+                            <router-link :id="image.id" :to="`/food-info/${image.month}/${image.name}`" class="h-10 w-10">
                                 <img ref="fruits"  :src="image.url" width="40" height="40">
                             </router-link>
                             <p class="text-xs capitalize justify-center">{{image.name}}</p>
@@ -57,17 +57,15 @@
         
 
            </div>
-    
         </div>
-    
-        </div>
+    </div>
 
 
 </template>
 <script>
 import AppBarVue from '../components/common/AppBar.vue';
 import BottomBarVue from '../components/common/BottomBar.vue';
-import getAllImages from '../functions/storage.functions';
+import Storage from '../functions/storage.functions';
 
 export default{
 components:{
@@ -82,17 +80,17 @@ methods:{
     this.loading = true;
         let i = 0;
         this.images = [];
-        const pngs = await getAllImages(month);
+        const pngs = await Storage.getAllImages(month);
         pngs.map((val)=>{
             val.then((v)=>{
                 this.images[i] = {
                     url:v.url,
-                    name:v.name
+                    name:v.name,
+                    month:month
                 };
                 i++;
             }) 
         });
-
     this.loading = false;
     },
 
@@ -101,12 +99,13 @@ methods:{
 async created(){
     let i = 0;
     this.images = [];
-    const pngs = await getAllImages("jan");
+    const pngs = await Storage.getAllImages("jan");
     pngs.map((val)=>{
         val.then((v)=>{
             this.images[i] = {
                     url:v.url,
-                    name:v.name
+                    name:v.name,
+                    month:"jan"
                 };
 
             i++;

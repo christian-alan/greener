@@ -21,7 +21,6 @@
             }
         },
         async created(){
-            console.log(this.buttonText);
         },
 
  
