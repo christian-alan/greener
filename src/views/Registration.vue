@@ -9,32 +9,44 @@
 
   <div class="flex flex-col justify-center items-center h-2/5">
 
-    <input type="text" placeholder="First name" class="txt-field-login">
-    <input type="text" placeholder="Last name" class="placeholder-white bg-gray-400 outline-none  shadow-md rounded-full w-2/3 h-10 px-2 py-3 my-2">
-    <input type="text" placeholder="E-mail" class="placeholder-white bg-gray-400 outline-none  shadow-md rounded-full w-2/3 h-10 px-2 py-3 my-2">
-    <input type="text" placeholder="Create a password" class="placeholder-white bg-gray-400 outline-none  shadow-md rounded-full w-2/3 h-10 px-2 py-3 my-2">
-    <input type="text" placeholder="Type your password again" class="placeholder-white bg-gray-400 outline-none  shadow-md rounded-full w-2/3 h-10 px-2 py-3 my-2">
-
+    <input type="text" placeholder="User name" class="txt-field-login" v-model="userName">
+    <input type="text" placeholder="Create a password" class="placeholder-white bg-gray-400 outline-none  shadow-md rounded-full w-2/3 h-10 px-2 py-3 my-2" v-model="password">
+   
   </div>
 
   <div class="flex flex-col justify-center items-center h-1/4">
-    <button  class="placeholder-white bg-black outline-none shadow-md rounded-full w-2/4 h-1/3 text-white">
+    <button ref="createbtn" @click="createUser(userName,password)"  class="placeholder-white bg-black outline-none shadow-md rounded-full w-2/4 h-1/3 text-white">
       Create account
     </button>
 
-    <p class="my-2">Log in</p>
+    <router-link to="login" class="my-2">Log in</router-link>
 
   </div>
-
-
 </template>
 <script>
-import logo from "../components/icons/Logo.vue"
+import logo from "../components/icons/Logo.vue";
+import AuthGuard from "../functions/authentication";
 
 export default{
   components:{
     logo
-  }
+  },
+  data(){
+    return {
+      userName:'',
+      password:''
+    }
+  },
+  methods:{
+   async createUser(userName,password){ 
+      await AuthGuard.createUser(this.userName, this.password);
+      console.log("UserName Created");
+      this.$router.push({name:'login'});
+    }
+  },
+  meta: {
+      requiresAuth: true, 
+  },
 }
 </script>
 <style>

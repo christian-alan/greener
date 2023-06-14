@@ -1,7 +1,6 @@
 <template>
-    <div class="flex justify-between flex-col h-full common-container">
-        <!-- Appbar -->
-        <AppBarVue></AppBarVue>
+    <div class="flex justify-between flex-col ">
+    
 
         <!--Body -->
         <div class="h-full common-container">
@@ -66,7 +65,6 @@
             </div>
         </div>
 
-        <BottomBarVue></BottomBarVue>
 
     </div>
 </template>
@@ -77,6 +75,9 @@ export default{
     components:{
         AppBarVue,
         BottomBarVue
+    },
+    meta: {
+         requiresAuth: true, 
     },
     methods:{
      gotoLearnMore(){

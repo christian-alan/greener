@@ -2,20 +2,21 @@
 
 <div class="flex justify-center ">
 
-    <button class="bg-white rounded-3xl w-full h-40 flex items-center shadow-lg">
+    <div class="bg-white mb-5 rounded-3xl w-full p-5 flex  shadow-lg">
         <!-- <img src="src/assets/images/apple.png"> -->
-        <img v-for="photos in recipe.photos" :src="photo" :key="photo" >
+            <img :src="recipe.photos" class="object-fill  w-24 h-24 mr-2" >
+
         <div class="flex flex-col items-start">
-        <p class="font-bold ">  {{ recipe.name }}</p>
-        <p >Keywords:</p>
-        <div class="flex flex-wrap">
-            <p v-for="keyword in recipe.keywords">{{keyword}} </p>
-        </div>
-        <p class="text-left text-sm"></p>
+            <p class="font-bold capitalize text-left">  {{ recipe.name }}</p>
+            <div class="flex flex-wrap">
+                <p class="font-normal mr-2 text-sm opacity-50" v-for="keyword in recipe.keywords" :key="keyword.id">{{keyword}}</p>
+            </div>
+            <button class="mt-1 px-2 py-2 font-semibold text-xs bg-cyan-500 text-white rounded-full shadow-sm" @click="takeToRecipe(recipe.id,recipe.photos)">Check recipe</button>
+         
         </div>
         
        
-    </button>
+    </div>
 </div>
 
 <div>
@@ -27,10 +28,16 @@
 <script>
 export default{
     async created(){
+      
     },
     props: {
         recipe:[]
-  },
+    },
+    methods:{
+        takeToRecipe(recipe,url){
+            this.$router.push(`/recipe/${recipe}`);
+        }  
+    }
 
 }
 </script>

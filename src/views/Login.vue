@@ -22,11 +22,11 @@
   </div>
 
   <div class="flex flex-col justify-center items-center h-1/6">
-    <button    class="placeholder-white bg-black outline-none shadow-md rounded-full w-2/4 h-2/4 text-white" @click="login">
-      Continue
+    <button  @click="authenticateUser(userName,password)"  class="placeholder-white bg-black outline-none shadow-md rounded-full w-2/4 h-2/4 text-white">
+        Login
     </button>
 
-    <p class="my-2">Create an account</p>
+    <router-link class="my-2" to="/registration">Create an account</router-link>
 
   </div>
 
@@ -35,25 +35,14 @@
 </template>
 
 <script>
-import logo from "../components/icons/Logo.vue"
+import logo from "../components/icons/Logo.vue";
+import AuthGuard from "../functions/authentication";
 
 export default{
 
   components:{
     logo
   },
-
-    //data(){
-     ////      id:0,
-       //     newTodo:'',
-       //     todos:[
-         //       {
-        //            id:this.id++,
-        //            text:'hey'
-      //          }
-      //      ]
-      //  }
- //   },
     data() {
         return {
             username: '',
@@ -61,37 +50,11 @@ export default{
         };
     },
     methods: {
-        addTodo() {
-            console.log(this.newTodo);
-            this.todos.push({ id: this.id++, text: this.newTodo });
-        },
-        removeTodo() {
-            // Add logic to remove a todo
-        },
-        login() {
-            // Our local database, can be created outside of the method as well
-            const database = [
-                { username: 'sammow', password: '1234' },
-                { username: 'alacri', password: '1234' },
-                { username: 'tuvkin', password: '1234' },
-                { username: 'larost', password: '1234' },
-                // Add more user objects as needed
-            ];
-           // Find a user with matching credentials in the database
-            const user = database.find((user) => user.username === this.username && user.password === this.password);
-
-            if (user) {
-                // Successful login
-                console.log('Logged in!');
-            } else {
-                // Invalid credentials
-                console.log('Invalid username or password');
-            }
-        }
-    },
-
-    async created(){
-        
+     authenticateUser(userName,password){ 
+          AuthGuard.authenticateUser(userName, password);
+          console.log("UserName authenticated");
+          this.$router.push({name:'/'});
+      }
     }
 
 }

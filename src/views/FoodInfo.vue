@@ -1,9 +1,7 @@
 <template>
 
     <div class="flex justify-between flex-col h-full common-container">
-        <!-- Appbar -->
-        <AppBarVue></AppBarVue>
-    
+   
         <!-- Body -->
         <div class="h-full common-container">
 
@@ -32,28 +30,28 @@
 
                  <!-- In season sign -->
 
-                <div class="parent h-64 bg-gray-200 relative" style="background-color: #34CB7C; height: 70px;">
+                <!-- <div class="parent h-64 bg-gray-200 relative" style="background-color: #34CB7C; height: 70px;">
                     <p class="text-white font-bold text-center pt-3 text-lg">Cauliflower is in season now!</p>   
-                    
+                     -->
                  <!-- Triangle  -->
-                    <div class="flex child absolute bottom-0">
+                    <!-- <div class="flex child absolute bottom-0">
                         <triangle v-for="triangle in triangles" :key="triangle.id" />
-                    </div>
-                </div> 
+                    </div> -->
+                <!-- </div>  -->
 
                 <!-- Explore Recipes -->
 
-                <div style="background-color: #f1f4f2;" class="flex justify-center shadow-lg mt-5 rounded-lg h-50">
+                <div style="background-color: #f1f4f2;" class="flex justify-center shadow-lg mt-5 rounded-lg p-5">
                     <div class="flex flex-col justify-center gap-2 pl-4">
-                        <p class="font-bold pt-">Explore recipes with [name of product]</p>
+                        <p class="font-bold pt-">Explore recipes with {{foodName}}</p>
 
                         <button class="bg-black text-white text-sm w-40 h-10 rounded-md text-center">
-                        <p>Find recipes here!</p>
+                            <p>Find recipes here!</p>
                         </button>
             
                     </div>
 
-                    <img src="src/assets/images/recipebook.png">
+                    <img :src="foodImage" width="120" height="120">
 
                 </div>
                 <!-- Sustainability Standards -->
@@ -63,8 +61,8 @@
                 <!-- Sustainability Standards -->
                
                 <div class="flex items-center">
-                    <img src="src/assets/images/keyhole.png" width="50" height="50" alt="Keyhole">
-                    <p class="text-lg font-bold">The Keyhole [change name from database]</p>
+                    <img src="@/assets/images/keyhole.png" width="50" height="50" alt="Keyhole">
+                    <p class="text-base font-bold">The Keyhole</p>
                 </div>
       
                 <p>{{ isTextVisible ? `${fullText.slice(0,50)}...` : fullText  }} 
@@ -74,8 +72,8 @@
                 </p>
                 
                 <div style="display: flex; align-items: center;">
-                    <img src="src/assets/images/euecological.png" width="50" height="50" alt="EU Ecological">
-                    <p class="text-lg font-bold">EU Ecological</p>
+                    <img src="@/assets/images/euecological.png" width="50" height="50" alt="EU Ecological">
+                    <p class="text-base font-bold">EU Ecological</p>
                 </div>
 
                 <p>{{ isTextVisible1 ? `${fullText1.slice(0,50)}...` : fullText1  }} 

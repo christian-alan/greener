@@ -1,9 +1,6 @@
 <template>
     
     <div class="flex justify-between flex-col h-full common-container relative">
-        <!-- Appbar -->
-        <AppBarVue></AppBarVue>
-    
     
         <!-- Body -->
         <div class="h-full flex flex-col common-container py-2">
@@ -29,7 +26,7 @@
             <!-- Recipe calendar -->
            <div class="w-full mt-4 h-full py-2 flex " style="max-height:700px">
             <!-- Catalog -->
-                <div class="w-3/4 card mr-1 overflow-auto" :class="loading ? 'flex flex-col justify-center items-center' : ''">  
+                <div class="w-4/5 card overflow-auto" :class="loading ? 'flex flex-col justify-center items-center' : ''">  
                     <span v-if="loading" class="loader"></span>
                     <div class="grid grid-cols-3 p-4 gap-5 ">
                         <div class="flex flex-col justify-center items-center" v-for="image of images" :key="image.id">
@@ -43,7 +40,7 @@
                 </div>
 
             <!-- Calendar -->
-            <div class=" w-1/4 flex flex-col ml-2 justify-between h-full ">
+            <div class=" w-1/5 flex flex-col justify-between h-full ">
                 <!-- Individual cell -->
                 <div class="absolute right-0 h-5/6 pb-8">
                     <div class="flex flex-col justify-between h-full " >
@@ -72,11 +69,15 @@ components:{
     AppBarVue,
     BottomBarVue
 },
+meta: {
+         requiresAuth: true, 
+},
 methods:{
     gotoFruit(){
         this.$refs
     },
    async fetchImages(month){
+    this.pickMonth = month;
     this.loading = true;
         let i = 0;
         this.images = [];
@@ -118,7 +119,7 @@ data(){
         selectedMonth:"jan",
         imageUrl: '', // Store the URL of the image
         images:[],
-        pickMonth:'',
+        pickMonth:'jan',
         loading:true,
         months:[
             {
@@ -180,7 +181,7 @@ data(){
 .calendar-radio{
     position: absolute;
     right: 0px;
-    width:80px;
+    width:60px;
     height:35px;
     border-top-left-radius: 16px;
     border-bottom-left-radius: 16px;
@@ -190,13 +191,23 @@ data(){
     box-sizing: border-box;
     background: #E9EDF0;
     border: 0.5px solid #FEFEFF;
-    box-shadow: 10px 10px 24px rgba(166, 180, 200, 0.7), -12px -12px 20px rgba(255, 255, 255, 0.8);
+    box-shadow: 10px 10px 24px rgba(166, 180, 200, 0.7), -12px -12px 20px rgba(255, 255, 255, 0.8);   
+}
+
+.calendar-radio:checked{
+    background-color: #445E72;
 }
 
 .calendar-radio-label{
     padding-right:10px;
 }
 
+.calendar-radio:checked .calendar-radio-label{
+    font-style:bold;
+    color:white;
+}
+ /****************************************************************/
+ /****************************************************************/
  /****************************************************************/
  /****************************************************************/
  /****************************************************************/
@@ -216,12 +227,12 @@ data(){
     }
 
     @keyframes rotation {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
     } 
 
 

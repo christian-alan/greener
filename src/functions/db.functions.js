@@ -1,5 +1,5 @@
 import {  db } from '../main.js';
-import {  child, get,onValue,ref } from "firebase/database";
+import {  onValue,ref } from "firebase/database";
 
 // Gets all the recipes
 export default async function getAllRecipes(){  
