@@ -1,7 +1,7 @@
 <template>
 
     <div class="flex justify-between flex-col h-full common-container">
-   
+        <AppBarVue></AppBarVue>
         <!-- Body -->
         <div class="h-full common-container">
 

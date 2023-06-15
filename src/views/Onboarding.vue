@@ -20,7 +20,7 @@
             <!-- <button class="btn-active w-full mr-2">Register</button>
             <button class="btn-inactive w-full ml-2">Login</button> -->
 
-            <button  class="w-full" :class="progressStage<4?'btn-inactive':'btn-active'" v-on:click="gotoHome()">Goto home</button>
+            <button  class="w-full" :class="progressStage<4?'btn-inactive':'btn-active'" v-on:click="gotoLogin()">Goto Login</button>
         </div>
     </div>
 </template>
@@ -53,8 +53,8 @@ export default{
                 this.progressStage = this.counter;
             }else return;
         },
-        gotoHome(){
-            this.$router.push('/');
+        gotoLogin(){
+            this.$router.push('/login');
         },
         onSwipe(){
             if(this.counter < 4){

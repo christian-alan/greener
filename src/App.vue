@@ -1,25 +1,12 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router'
-import AppBarVue from './components/common/AppBar.vue';
-import BottomBarVue from './components/common/BottomBar.vue';
 
-export default {
-  components:{
-      AppBarVue,
-      BottomBarVue
-    },
-}
+export default {}
 </script>
 
 <template>
-  <div class="w-full h-full common-container flex flex-col justify-between">
-      <!-- Appbar -->
-      <AppBarVue></AppBarVue>
-      <div class="overflow-y-auto overflow-x-hidden h-full relative">
+  <div class="w-full h-full flex flex-col justify-between"> 
         <RouterView></RouterView>
-      </div>
-      <!-- Bottom Bar -->
-     <BottomBarVue></BottomBarVue>
   </div>
 </template>
 

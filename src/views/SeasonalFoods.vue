@@ -1,14 +1,15 @@
 <template>
     
-    <div class="flex justify-between flex-col h-full common-container relative">
+    <div class="flex justify-between flex-col h-full relative">
     
         <!-- Body -->
-        <div class="h-full flex flex-col common-container py-2">
+        <div class="h-full flex flex-col py-2">
+            <AppBarVue></AppBarVue>
             <!-- Heading and Description -->
             <div class="px-2">  
-    
+                
                 <div class="flex flex-col">
-                <router-link :to="'/'">
+                <router-link :to="'/home'">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M9.41424 12L16.7071 19.2929L15.2929 20.7071L6.58582 12L15.2929 3.29291L16.7071 4.70712L9.41424 12Z" fill="#151515"/>
                     </svg>

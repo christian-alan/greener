@@ -1,27 +1,27 @@
 <template>
-  <div class="flex flex-col items-center justify-end h-1/6 ">
+  <div class="flex flex-col items-center h-full justify-between common-container ">
+  
+    <div class="flex flex-col items-center w-full mt-44">
+    <!-- Intructions -->
     <logo></logo>
-  </div>
+    <p class="mt-4 text-2xl">Log in</p>
 
-  <div class="flex flex-col items-center justify-center h-1/6 text-2xl">
-    <p>Registration</p>
-  </div>
+    <!-- Form -->
+    <div class="flex flex-col justify-center items-center mt-10 w-full px-10">
 
-  <div class="flex flex-col justify-center items-center h-2/5">
+      <input type="text" placeholder="Username" v-model="userName" class="txt-field-login w-full  ">
+      <input type="password" placeholder="Password" v-model="password" class="txt-field-login w-full ">
 
-    <input type="text" placeholder="User name" class="txt-field-login" v-model="userName">
-    <input type="text" placeholder="Create a password" class="placeholder-white bg-gray-400 outline-none  shadow-md rounded-full w-2/3 h-10 px-2 py-3 my-2" v-model="password">
-   
-  </div>
+  
+      <button ref="createbtn" @click="createUser(userName,password)"  class="bg-black mt-10 hover:bg-blue-700 w-full text-white font-bold py-2 px-4 border border-blue-700 rounded-full">
+        Create account
+      </button>
 
-  <div class="flex flex-col justify-center items-center h-1/4">
-    <button ref="createbtn" @click="createUser(userName,password)"  class="placeholder-white bg-black outline-none shadow-md rounded-full w-2/4 h-1/3 text-white">
-      Create account
-    </button>
+      <router-link to="login" class=" my-4 underline">Back to Log in</router-link>
 
-    <router-link to="login" class="my-2">Log in</router-link>
-
-  </div>
+    </div>
+    </div>
+</div>
 </template>
 <script>
 import logo from "../components/icons/Logo.vue";

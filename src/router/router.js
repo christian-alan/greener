@@ -10,9 +10,8 @@ import Profile from '../views/Profile.vue';
 import RecipesListing from "@/views/RecipeListing.vue";
 import FoodInfo from '../views/FoodInfo.vue';
 import Recipe from '../views/Recipe.vue';
+import AppShell from '../views/AppShell.vue';
 import AuthGuard from '../functions/authentication';
-
-
 
 
 const router = createRouter({
@@ -36,22 +35,34 @@ const router = createRouter({
         },
         {
             path:"/",
-            name:"home",
-            component:Home,
+            name:"appshell",
+            component:AppShell,
             meta:{
                 requiresAuth: true,
                  
-            }
+            },
+            children:[
+               {
+                    path:"/home",
+                    name:"home",
+                    component:Home,
+                    meta:{
+                        requiresAuth: true,
+                        
+                    }
+                },
+                {
+                    path:"/profile",
+                    name:"profile",
+                    component:Profile,
+                    meta:{
+                        requiresAuth: true,
+                         
+                    }
+                },
+            ]
         },
-        {
-            path:"/profile",
-            name:"profile",
-            component:Profile,
-            meta:{
-                requiresAuth: true,
-                 
-            }
-        },
+      
         {
             path:"/seasonalFoods",
             name:"seasonal-foods",

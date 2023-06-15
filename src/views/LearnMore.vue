@@ -2,6 +2,7 @@
 
 <div class="flex justify-between flex-col h-full common-container">
 
+    <AppBarVue></AppBarVue>
     <!-- Body -->
     <div class="h-full common-container py-2">
         <!-- Heading and Description -->
@@ -64,8 +65,12 @@
 </template>
 
 <script>
-export default{
+import AppBarVue from '../components/common/AppBar.vue';
 
+export default{
+    components:{
+        AppBarVue
+    },
     meta: {
          requiresAuth: true, 
     },

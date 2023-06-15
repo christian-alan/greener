@@ -1,36 +1,28 @@
 <template>
-
-  <div class="flex flex-col items-center justify-end h-1/4 ">
+  <div class="flex flex-col items-center h-full justify-between common-container ">
+  
+    <div class="flex flex-col items-center w-full mt-44">
     <!-- Intructions -->
-    <!-- 0. To access this component use the link: http://localhost:5173/login -->
-    <!-- 1. Add the logo. Use the SVG version. I have created the component for the logo. With this approach the logo has been turned into a reusable component. -->
     <logo></logo>
+    <p class="mt-4 text-2xl">Log in</p>
 
-    <!-- 2. Add the text and the text boxes -->
-    <!-- 3. Add the button -->
+    <!-- Form -->
+    <div class="flex flex-col justify-center items-center mt-10 w-full px-10">
+
+      <input type="text" placeholder="Username" v-model="userName" class="txt-field-login w-full  ">
+      <input type="password" placeholder="Password" v-model="password" class="txt-field-login w-full ">
+      <hr/>
+      <button  @click="authenticateUser(userName,password)"  class="bg-black mt-10 hover:bg-blue-700 w-full text-white font-bold py-2 px-4 border border-blue-700 rounded-full ">
+          Login
+      </button>
+      <router-link class=" my-4 underline" to="/registration">Create an account</router-link>
+    
+    </div>
   </div>
 
-  <div class="flex flex-col items-center justify-center h-1/6 text-2xl">
-    <p>Log in</p>
+   <router-link  class="w-full py-4 text-center bg-black text-white mb-10" to="/onboarding">Check the onboarding🗒️ >></router-link>
+  
   </div>
-
-  <div class="flex flex-col justify-center items-center h-1/4">
-
-    <input type="text" placeholder="Username" v-model="username" class="placeholder-white bg-gray-400 outline-none  shadow-md rounded-full w-2/3 h-10 px-2 py-3 my-2">
-    <input type="password" placeholder="Password" v-model="password" class="placeholder-white bg-gray-400 outline-none  shadow-md rounded-full w-2/3 h-10 px-2 py-3 my-2">
-
-  </div>
-
-  <div class="flex flex-col justify-center items-center h-1/6">
-    <button  @click="authenticateUser(userName,password)"  class="placeholder-white bg-black outline-none shadow-md rounded-full w-2/4 h-2/4 text-white">
-        Login
-    </button>
-
-    <router-link class="my-2" to="/registration">Create an account</router-link>
-
-  </div>
-
-
 
 </template>
 
@@ -45,16 +37,16 @@ export default{
   },
     data() {
         return {
-            username: '',
+            userName: '',
             password: ''
         };
     },
     methods: {
      authenticateUser(userName,password){ 
           AuthGuard.authenticateUser(userName, password);
-          console.log("UserName authenticated");
-          this.$router.push({name:'/'});
-      }
+          this.$router.push({name:'home'});
+      },
+
     }
 
 }

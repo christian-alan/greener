@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-between flex-col ">
+    <div class="flex justify-between flex-col  common-container">
     
 
         <!--Body -->
@@ -17,13 +17,11 @@
             </div>  -->
 
             <!--This week's banner -->
-            <div class="w-full py-8 px-4 flex items-center justify-between" style="background-color:#E0E0E0;">
+            <div class="w-full py-4 px-4 flex items-center justify-between" style="background-color:#E0E0E0;">
                 <div>
                     <p class="text-sm">This week’s seasonal 
                         vegetable is <span class="text-sm font-bold">Beetroot</span>
                     </p>
-
-                    <p class="text-sm underline opacity-30">Explore receipes⇒</p>
                 </div>
                 <div>
                     <img src=".././assets/images/beatroot.png" width="100" height="100" alt="beat root">

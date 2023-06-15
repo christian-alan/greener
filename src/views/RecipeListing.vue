@@ -1,10 +1,10 @@
 <template>
   <div class="flex justify-between flex-col h-full common-container">
-    
+    <AppBarVue></AppBarVue>
     <div class="h-full common-container">
       <!-- Heading -->
       <div class="flex">
-            <router-link to="/"> 
+            <router-link to="/home"> 
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M9.41424 12L16.7071 19.2929L15.2929 20.7071L6.58582 12L15.2929 3.29291L16.7071 4.70712L9.41424 12Z" fill="#151515"/>
                 </svg>
@@ -80,14 +80,15 @@ import ReciepeVue from '../components/recipe/Reciepe.vue';
 import {  db } from '../main.js';
 import { onValue,ref } from "firebase/database";
 import Storage from '../functions/storage.functions';
-
+import AppBarVue from '../components/common/AppBar.vue';
 
 
 export default {
   components:{
     Ingredient, 
     IngredientWhite,
-    ReciepeVue
+    ReciepeVue,
+    AppBarVue,
   },
   async created(){
     // Calls the recipe data
